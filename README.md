@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -48,22 +50,22 @@
       <div id="nameSelector"
         class="hidden absolute top-16 left-0 w-full bg-white border shadow-2xl rounded-2xl z-50 overflow-hidden">
 
-        <div onclick="selectName('SANAVAJ')"
+        <div onclick="selectName('<span class="text-red-400 font-bold">SANAVAJ</span>')"
           class="p-4 border-b cursor-pointer hover:bg-white/10">
           SANAVAJ
         </div>
 
-        <div onclick="selectName('ASHIQ')"
+        <div onclick="selectName('<span class="text-red-400 font-bold">ASHIQ</span>')"
           class="p-4 border-b cursor-pointer hover:bg-white/10">
           ASHIQ
         </div>
 
-        <div onclick="selectName('OVES')"
+        <div onclick="selectName('<span class="text-red-400 font-bold">OVES</span>')"
           class="p-4 border-b cursor-pointer hover:bg-white/10">
           OVES
         </div>
 
-        <div onclick="selectName('TANVEER')"
+        <div onclick="selectName('<span class="text-red-400 font-bold">TANVEER</span>')"
           class="p-4 cursor-pointer hover:bg-white/10">
           TANVEER
         </div>
@@ -85,22 +87,22 @@
 
         <label class="flex items-center gap-3 p-4 border-b cursor-pointer hover:bg-white/10">
           <input type="checkbox" value="9588833797" class="phone-checkbox">
-          <span>9588833797</span>
+          <span class="text-red-400 font-bold">9588833797</span>
         </label>
 
         <label class="flex items-center gap-3 p-4 border-b cursor-pointer hover:bg-white/10">
           <input type="checkbox" value="8824363410" class="phone-checkbox">
-          <span>8824363410</span>
+          <span class="text-red-400 font-bold">8824363410</span>
         </label>
 
         <label class="flex items-center gap-3 p-4 border-b cursor-pointer hover:bg-white/10">
           <input type="checkbox" value="7568617184" class="phone-checkbox">
-          <span>7568617184</span>
+          <span class="text-red-400 font-bold">7568617184</span>
         </label>
 
         <label class="flex items-center gap-3 p-4 cursor-pointer hover:bg-white/10">
           <input type="checkbox" value="9530270792" class="phone-checkbox">
-          <span>9530270792</span>
+          <span class="text-red-400 font-bold">9530270792</span>
         </label>
       </div>
     </div>
@@ -385,8 +387,8 @@ function renderHistory() {
     card.innerHTML = `
       <div class="flex justify-between items-start mb-3">
         <div>
-          <h3 class="font-bold text-lg">${item.name}</h3>
-          <p class="text-white/70 text-sm">${item.phone}</p>
+          <h3 class="font-bold text-lg text-red-400">${item.name}</h3>
+          <p class="text-red-300 text-sm font-semibold">${item.phone}</p>
         </div>
 
         <div class="bg-white border px-3 py-1 rounded-full text-xs">
