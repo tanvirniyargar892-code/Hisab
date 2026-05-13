@@ -8,8 +8,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WhatsApp Work Manager</title>
   <script src="https://cdn.tailwindcss.com"></script>
+<script>
+const style = document.createElement('style');
+style.innerHTML = `
+.custom-scroll::-webkit-scrollbar {
+  width: 10px;
+}.custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 20px; }
+
+.custom-scroll::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #ff004c, #ff7b00); border-radius: 20px; }
+
+.custom-scroll::-webkit-scrollbar-thumb:hover { background: linear-gradient(to bottom, #ff1e5f, #ff9d2f); } `;
+
+document.head.appendChild(style); </script>
+
 </head>
-<body class="bg-gradient-to-br from-purple-700 via-pink-600 to-orange-500 min-h-screen p-4 text-white">  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6"><div class="md:col-span-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-6">
+<body class="bg-black min-h-screen p-4 text-white">  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6"><div class="md:col-span-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-6">
 
   <div class="flex justify-between items-center mb-6">
     <div>
@@ -24,9 +37,9 @@
       </button>
 
       <div id="historyMenu"
-        class="hidden absolute right-0 top-14 bg-white shadow-2xl rounded-2xl w-64 border z-50 overflow-hidden">
+        class="hidden absolute right-0 top-14 bg-white shadow-2xl rounded-2xl w-64 border z-[9999] overflow-hidden">
 
-        <div class="p-4 font-bold bg-gray-100 border-b">
+        <div class="p-4 font-bold bg-black border-b border-white/10 text-green-400">
           Number Wise History
         </div>
 
@@ -39,8 +52,8 @@
 
     <div class="relative">
       <button onclick="toggleNameSelector()"
-        class="w-full border p-4 rounded-2xl outline-none bg-white text-left flex justify-between items-center">
-        <span id="selectedNameText" class="text-gray-700">
+        class="w-full border border-white/20 p-4 rounded-2xl outline-none bg-black text-white text-left flex justify-between items-center shadow-xl">
+        <span id="selectedNameText" class="text-red-400 font-bold">
           Select Name
         </span>
 
@@ -48,25 +61,25 @@
       </button>
 
       <div id="nameSelector"
-        class="hidden absolute top-16 left-0 w-full bg-white border shadow-2xl rounded-2xl z-50 overflow-hidden">
+        class="hidden absolute top-16 left-0 w-full bg-black border border-white/20 shadow-2xl rounded-2xl z-[9999] overflow-hidden text-white">
 
-        <div onclick="selectName('<span class="text-red-400 font-bold">SANAVAJ</span>')"
-          class="p-4 border-b cursor-pointer hover:bg-white/10">
+        <div onclick="selectName('SANAVAJ')"
+          class="p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
           SANAVAJ
         </div>
 
-        <div onclick="selectName('<span class="text-red-400 font-bold">ASHIQ</span>')"
-          class="p-4 border-b cursor-pointer hover:bg-white/10">
+        <div onclick="selectName('ASHIQ')"
+          class="p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
           ASHIQ
         </div>
 
-        <div onclick="selectName('<span class="text-red-400 font-bold">OVES</span>')"
-          class="p-4 border-b cursor-pointer hover:bg-white/10">
+        <div onclick="selectName('OVES')"
+          class="p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
           OVES
         </div>
 
-        <div onclick="selectName('<span class="text-red-400 font-bold">TANVEER</span>')"
-          class="p-4 cursor-pointer hover:bg-white/10">
+        <div onclick="selectName('TANVEER')"
+          class="p-4 cursor-pointer hover:bg-white/10 bg-black text-white">
           TANVEER
         </div>
       </div>
@@ -74,8 +87,8 @@
 
     <div class="relative">
       <button onclick="toggleNumberSelector()"
-        class="w-full border p-4 rounded-2xl outline-none bg-white text-left flex justify-between items-center">
-        <span id="selectedNumbersText" class="text-gray-700">
+        class="w-full border border-white/20 p-4 rounded-2xl outline-none bg-black text-white text-left flex justify-between items-center shadow-xl">
+        <span id="selectedNumbersText" class="text-red-400 font-bold">
           Select WhatsApp Numbers
         </span>
 
@@ -83,19 +96,19 @@
       </button>
 
       <div id="numberSelector"
-        class="hidden absolute top-16 left-0 w-full bg-white border shadow-2xl rounded-2xl z-50 overflow-hidden">
+        class="hidden absolute top-16 left-0 w-full bg-black border border-white/20 shadow-2xl rounded-2xl z-[9999] overflow-hidden text-white">
 
-        <label class="flex items-center gap-3 p-4 border-b cursor-pointer hover:bg-white/10">
+        <label class="flex items-center gap-3 p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
           <input type="checkbox" value="9588833797" class="phone-checkbox">
           <span class="text-red-400 font-bold">9588833797</span>
         </label>
 
-        <label class="flex items-center gap-3 p-4 border-b cursor-pointer hover:bg-white/10">
+        <label class="flex items-center gap-3 p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
           <input type="checkbox" value="8824363410" class="phone-checkbox">
           <span class="text-red-400 font-bold">8824363410</span>
         </label>
 
-        <label class="flex items-center gap-3 p-4 border-b cursor-pointer hover:bg-white/10">
+        <label class="flex items-center gap-3 p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
           <input type="checkbox" value="7568617184" class="phone-checkbox">
           <span class="text-red-400 font-bold">7568617184</span>
         </label>
@@ -109,8 +122,8 @@
 
     <div class="relative">
       <button onclick="toggleAmountSelector()"
-        class="w-full border p-4 rounded-2xl outline-none bg-white text-left flex justify-between items-center">
-        <span id="selectedAmountText" class="text-gray-700">
+        class="w-full border border-white/20 p-4 rounded-2xl outline-none bg-black text-white text-left flex justify-between items-center shadow-xl">
+        <span id="selectedAmountText" class="text-red-400 font-bold">
           Select Amount
         </span>
 
@@ -118,31 +131,31 @@
       </button>
 
       <div id="amountSelector"
-        class="hidden absolute top-16 left-0 w-full bg-white border shadow-2xl rounded-2xl z-50 overflow-hidden">
+        class="hidden absolute top-16 left-0 w-full bg-black border border-white/20 shadow-2xl rounded-2xl z-[9999] overflow-hidden text-white">
 
         <div onclick="selectAmount('300')"
-          class="p-4 border-b cursor-pointer hover:bg-white/10">
-          ₹ 300
+          class="p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
+          <span class="text-red-400 font-bold"><span class="text-red-400 font-bold">₹ 300</span></span>
         </div>
 
         <div onclick="selectAmount('400')"
-          class="p-4 border-b cursor-pointer hover:bg-white/10">
-          ₹ 400
+          class="p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
+          <span class="text-red-400 font-bold"><span class="text-red-400 font-bold">₹ 400</span></span>
         </div>
 
         <div onclick="selectAmount('350')"
-          class="p-4 border-b cursor-pointer hover:bg-white/10">
-          ₹ 350
+          class="p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
+          <span class="text-red-400 font-bold"><span class="text-red-400 font-bold">₹ 350</span></span>
         </div>
 
         <div onclick="selectAmount('500')"
-          class="p-4 border-b cursor-pointer hover:bg-white/10">
-          ₹ 500
+          class="p-4 border-b border-white/10 cursor-pointer hover:bg-white/10 bg-black text-white">
+          <span class="text-red-400 font-bold"><span class="text-red-400 font-bold">₹ 500</span></span>
         </div>
 
         <div onclick="selectAmount('600')"
-          class="p-4 cursor-pointer hover:bg-white/10">
-          ₹ 600
+          class="p-4 cursor-pointer hover:bg-white/10 bg-black text-white">
+          <span class="text-red-400 font-bold"><span class="text-red-400 font-bold">₹ 600</span></span>
         </div>
       </div>
     </div>
@@ -173,7 +186,7 @@
     </button>
   </div>
 
-  <div id="historyBox" class="space-y-4 max-h-[700px] overflow-y-auto"></div>
+  <div id="historyBox" class="space-y-4 max-h-[700px] overflow-y-auto pr-2 custom-scroll"></div>
 
   <div class="mt-5 bg-gradient-to-r from-cyan-400 to-blue-600 text-white p-4 rounded-2xl text-sm font-semibold cursor-pointer" onclick="showAllHistory()">
     📂 Permanent All History
@@ -200,30 +213,70 @@ function saveHistory(data) {
   localStorage.setItem('workHistory', JSON.stringify(data));
 }
 
+function closeAllSelectors() {
+  document.getElementById('nameSelector').classList.add('hidden');
+  document.getElementById('numberSelector').classList.add('hidden');
+  document.getElementById('amountSelector').classList.add('hidden');
+}
+
 function toggleAmountSelector() {
-  document.getElementById('amountSelector').classList.toggle('hidden');
+
+  const selector = document.getElementById('amountSelector');
+  const isHidden = selector.classList.contains('hidden');
+
+  closeAllSelectors();
+
+  if (isHidden) {
+    selector.classList.remove('hidden');
+  }
+  
 }
 
 function selectAmount(amount) {
-  document.getElementById('selectedAmountText').innerText = `₹ ${amount}`;
+  document.getElementById('selectedAmountText').innerHTML = `<span class="text-red-400 font-bold">₹ ${amount}</span>`;
   document.getElementById('amountSelector').classList.add('hidden');
 }
 
 function toggleNameSelector() {
-  document.getElementById('nameSelector').classList.toggle('hidden');
+
+  const selector = document.getElementById('nameSelector');
+  const isHidden = selector.classList.contains('hidden');
+
+  closeAllSelectors();
+
+  if (isHidden) {
+    selector.classList.remove('hidden');
+  }
+  
 }
 
 function selectName(name) {
-  document.getElementById('selectedNameText').innerText = name;
+  document.getElementById('selectedNameText').innerHTML = `<span class="text-red-400 font-bold">${name}</span>`;
   document.getElementById('nameSelector').classList.add('hidden');
 }
 
 function toggleNumberSelector() {
-  document.getElementById('numberSelector').classList.toggle('hidden');
+
+  const selector = document.getElementById('numberSelector');
+  const isHidden = selector.classList.contains('hidden');
+
+  closeAllSelectors();
+
+  if (isHidden) {
+    selector.classList.remove('hidden');
+  }
+  
 }
 
 function toggleMenu() {
-  document.getElementById('historyMenu').classList.toggle('hidden');
+
+  const menu = document.getElementById('historyMenu');
+
+  if (menu.classList.contains('hidden')) {
+    menu.classList.remove('hidden');
+  } else {
+    menu.classList.add('hidden');
+  }
 }
 
 document.addEventListener('change', function () {
@@ -231,10 +284,10 @@ document.addEventListener('change', function () {
   const checked = [...document.querySelectorAll('.phone-checkbox:checked')]
     .map(cb => cb.value);
 
-  document.getElementById('selectedNumbersText').innerText =
+  document.getElementById('selectedNumbersText').innerHTML =
     checked.length > 0
-      ? checked.join(', ')
-      : 'Select WhatsApp Numbers';
+      ? `<span class="text-red-400 font-bold">${checked.join(', ')}</span>`
+      : '<span class="text-red-400 font-bold">Select WhatsApp Numbers</span>';
 });
 
 function saveWork() {
@@ -302,10 +355,10 @@ ${historyLink}`;
     window.open(`https://wa.me/91${number}?text=${encodeURIComponent(message)}`, '_blank');
   });
 
-  document.getElementById('selectedNameText').innerText = 'Select Name';
+  document.getElementById('selectedNameText').innerHTML = '<span class="text-red-400 font-bold">Select Name</span>';
   document.querySelectorAll('.phone-checkbox').forEach(cb => cb.checked = false);
   document.getElementById('selectedNumbersText').innerText = 'Select WhatsApp Numbers';
-  document.getElementById('selectedAmountText').innerText = 'Select Amount';
+  document.getElementById('selectedAmountText').innerHTML = '<span class="text-red-400 font-bold">Select Amount</span>';
   document.getElementById('work').value = '';
   
 
@@ -338,8 +391,8 @@ function renderNumbers() {
     btn.className = 'w-full text-left p-4 border-b hover:bg-gray-100';
 
     btn.innerHTML = `
-      <div class="font-bold">${number}</div>
-      <div class="text-sm text-white/70">View History</div>
+      <div class="font-bold text-red-400">${number}</div>
+      <div class="text-sm text-green-400">View History</div>
     `;
 
     btn.onclick = () => {
