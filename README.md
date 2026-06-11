@@ -112,7 +112,7 @@ color:white;
 <input type="number" id="mobile">
 
 <label>Paise (₹)</label>
-<input type="text" id="amount" placeholder="Paise ₹">
+<input type="text" id="paise">
 
 <label>Kaam Ka Naam</label>
 <input type="text" id="work">
