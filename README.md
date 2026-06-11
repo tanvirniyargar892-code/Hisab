@@ -106,16 +106,16 @@ color:white;
 <h2>Kaam Hisab WhatsApp Scheduler</h2>
 
 <label>Naam</label>
-<input type="text" id="name">
+<input type="text" id="name" placeholder="Naam">
 
 <label>Mobile Number</label>
-<input type="number" id="mobile">
+<input type="tel" id="mobile" placeholder="Mobile Number">
 
 <label>Paise (₹)</label>
-<input type="text" id="paise">
+<input type="text" id="paise" placeholder="Paise">
 
 <label>Kaam Ka Naam</label>
-<input type="text" id="work">
+<input type="text" id="work" placeholder="Kaam Ka Naam">
 
 <label>Tarikh</label>
 <input type="text" id="date" readonly>
@@ -156,7 +156,7 @@ new Date().toLocaleDateString("hi-IN");
 function getMessage(){
 
 let name=document.getElementById("name").value;
-let amount=document.getElementById("amount").value;
+let amount=document.getElementById("paise").value;
 let work=document.getElementById("work").value;
 let date=document.getElementById("date").value;
 
@@ -173,14 +173,86 @@ Dhanyavaad`;
 
 function sendNow(){
 
-let mobile=document.getElementById("mobile").value;
+let mobile=document.getElementById("mobile").value.trim();
 
-let url=
-`https://wa.me/91${mobile}?text=${encodeURIComponent(getMessage())}`;
-
-window.open(url,"_blank");
+if(!mobile){
+alert("Mobile Number Daaliye");
+return;
 }
 
+let url =
+"https://wa.me/91" + mobile +
+"?text=" + encodeURIComponent(getMessage());
+
+window.location.href = url;
+}
+
+function scheduleMessage(){
+
+let scheduleInput =
+document.getElementById("scheduleTime").value;
+
+if(!scheduleInput){
+alert("Schedule Time Select Karein");
+return;
+}
+
+let scheduleDate = new Date(scheduleInput);
+let now = new Date();
+
+let delay = scheduleDate - now;
+
+if(delay <= 0){
+alert("Future Time Select Karein");
+return;
+}
+
+document.getElementById("status").innerHTML =
+"Schedule Save Ho Gaya";
+
+setTimeout(function(){
+
+let mobile =
+document.getElementById("mobile").value.trim();
+
+if(!mobile){
+alert("Mobile Number Daaliye");
+return;
+}
+
+let url =
+"https://wa.me/91" + mobile +
+"?text=" + encodeURIComponent(getMessage());
+
+window.location.href = url;
+
+}, delay);
+}
+
+function saveData(){
+
+let name=document.getElementById("name").value;
+let mobile=document.getElementById("mobile").value;
+let amount=document.getElementById("paise").value;
+let work=document.getElementById("work").value;
+
+let table=document.getElementById("recordsTable");
+
+let row=table.insertRow(-1);
+
+row.insertCell(0).innerHTML=name;
+row.insertCell(1).innerHTML=mobile;
+row.insertCell(2).innerHTML="₹"+amount;
+row.insertCell(3).innerHTML=work;
+
+document.getElementById("status").innerHTML =
+"Record Save Ho Gaya";
+}
+
+</script>
+
+</body>
+</html>
 function scheduleMessage(){
 
 let scheduleInput=
