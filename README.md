@@ -160,15 +160,13 @@ let amount=document.getElementById("paise").value;
 let work=document.getElementById("work").value;
 let date=document.getElementById("date").value;
 
-return `Namaste ${name},
+return `Name: ${name},
 
 Kaam: ${work}
 
 Rakam: ₹${amount}
 
 Tarikh: ${date}
-
-Dhanyavaad`;
 }
 
 function sendNow(){
